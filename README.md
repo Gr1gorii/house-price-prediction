@@ -1,7 +1,7 @@
 # House Price Prediction
 
 A machine learning project that estimates real estate prices based on property features.
-Built as a portfolio project to practice end-to-end data science — from raw data to a working prediction script.
+Built as a portfolio project to practice end-to-end data science - from raw data to a working prediction script.
 
 ---
 
@@ -20,7 +20,7 @@ It contains 1,500 rows and 13 features, designed to reflect realistic real estat
 
 | Column | Type | Description |
 |---|---|---|
-| `price` | float | Target variable — property price in USD |
+| `price` | float | Target variable - property price in USD |
 | `area_sqm` | float | Total area in square meters |
 | `rooms` | int | Total number of rooms |
 | `bedrooms` | int | Number of bedrooms |
@@ -34,7 +34,7 @@ It contains 1,500 rows and 13 features, designed to reflect realistic real estat
 | `has_parking` | int | 1 if the property has parking |
 | `condition` | str | Property condition: excellent / good / fair / poor |
 
-Price was generated using a multiplicative formula that combines all features with about 10% random noise —
+Price was generated using a multiplicative formula that combines all features with about 10% random noise -
 so it's not perfectly predictable but still has realistic patterns.
 
 ---
@@ -42,12 +42,12 @@ so it's not perfectly predictable but still has realistic patterns.
 ## Tools and Libraries
 
 - **Python 3.9+**
-- `pandas` — data loading and manipulation
-- `numpy` — numerical operations
-- `matplotlib` + `seaborn` — visualizations
-- `scikit-learn` — model training and evaluation
-- `joblib` — saving/loading the trained model
-- `jupyter` — EDA notebook
+- `pandas` - data loading and manipulation
+- `numpy` - numerical operations
+- `matplotlib` + `seaborn` - visualizations
+- `scikit-learn` - model training and evaluation
+- `joblib` - saving/loading the trained model
+- `jupyter` - EDA notebook
 
 ---
 
@@ -87,7 +87,7 @@ Before building any model, I explored the dataset to understand what's going on 
 
 ### Price Distribution
 
-Prices are right-skewed — most apartments cluster in a mid-range band, with a long tail of expensive properties.
+Prices are right-skewed - most apartments cluster in a mid-range band, with a long tail of expensive properties.
 The log-scale version looks closer to normal, which is typical for real estate data.
 
 ![Price Distribution](images/price_distribution.png)
@@ -102,14 +102,14 @@ Apartments with more rooms (darker colour) tend to cluster on the right side.
 ### Average Price by District
 
 Location has a clear effect on price. Downtown and Central are the most expensive,
-while Suburbs are significantly cheaper — sometimes half the price.
+while Suburbs are significantly cheaper - sometimes half the price.
 
 ![Price by District](images/price_by_district.png)
 
 ### Correlation Matrix
 
 Area has the strongest positive correlation with price. Distance to center and building age
-both have negative correlations — further from center and older buildings tend to be cheaper.
+both have negative correlations - further from center and older buildings tend to be cheaper.
 
 ![Correlation Matrix](images/correlation_matrix.png)
 
@@ -136,7 +136,7 @@ I added a few extra features to give the models more useful information:
 | `condition_encoded` | Ordinal encoding: excellent=4, good=3, fair=2, poor=1 |
 | `age_category_encoded` | Ordinal encoding of building age category |
 
-I also computed `price_per_sqm` but did **not** use it in training — it's directly derived from
+I also computed `price_per_sqm` but did **not** use it in training - it's directly derived from
 the target variable (price), which would cause data leakage.
 
 ---
@@ -145,9 +145,9 @@ the target variable (price), which would cause data leakage.
 
 I trained and compared three regression models:
 
-1. **Linear Regression** — simple baseline, good for checking if the relationship is roughly linear
-2. **Random Forest Regressor** — handles non-linear relationships well, robust to outliers
-3. **Gradient Boosting Regressor** — often outperforms Random Forest on tabular data
+1. **Linear Regression** - simple baseline, good for checking if the relationship is roughly linear
+2. **Random Forest Regressor** - handles non-linear relationships well, robust to outliers
+3. **Gradient Boosting Regressor** - often outperforms Random Forest on tabular data
 
 All models used `random_state=42` for reproducibility.
 
