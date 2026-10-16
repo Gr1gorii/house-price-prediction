@@ -1,5 +1,7 @@
 # House Price Prediction
 
+Published report: [house-price-prediction](https://gr1gorii.github.io/house-price-prediction/)
+
 A machine learning project that estimates real estate prices based on property features.
 Built as a portfolio project to practice end-to-end data science - from raw data to a working prediction script.
 
